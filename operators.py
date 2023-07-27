@@ -25,15 +25,15 @@ class LoadAnaPose(bpy.types.Operator):
         arm = context.scene.anamnesis_armature.pose
 
         # support for proper bone orientations: get diff from original
-        arm.bones['n_hara'].matrix_basis = Matrix()
+        arm.bones['n_throw'].matrix_basis = Matrix()
         # axis-angle form of the diff quaternion we want to pass to each individual bone operation. shorthand to pack into a float vector property; this seems silly?
-        aa = Quaternion([1,0,0,0]).rotation_difference(arm.bones['n_hara'].matrix.to_quaternion()).to_axis_angle()
+        aa = Quaternion([1,0,0,0]).rotation_difference(arm.bones['n_throw'].matrix.to_quaternion()).to_axis_angle()
         diff = [aa[0][0], aa[0][1], aa[0][2], aa[1]]
 
         for bone in arm.bones:
             bpy.ops.pose.load_ana_bone('EXEC_DEFAULT', bone=bone.name, path=self.filepath, diff=diff)
         # rotate the whole thing to be upright, otherwise it can turn based on the transform of the armature object
-        arm.bones['n_hara'].rotation_quaternion = Quaternion([1,0,0,0])
+        arm.bones['n_throw'].rotation_quaternion = Quaternion([1,0,0,0])
         return {'FINISHED'}
 
     # don't forget this so we can get the file select popup
@@ -108,9 +108,9 @@ class ExportAnaPose(bpy.types.Operator, ExportHelper):
         arm = context.scene.anamnesis_armature.pose
 
         hara = arm.bones['n_hara'].matrix_basis
-        arm.bones['n_hara'].matrix_basis = Matrix()
+        arm.bones['n_throw'].matrix_basis = Matrix()
         diff = Quaternion([1,0,0,0]).rotation_difference(arm.bones['n_hara'].matrix.to_quaternion())
-        arm.bones['n_hara'].matrix_basis = hara
+        arm.bones['n_throw'].matrix_basis = hara
 
         with open(self.filepath, 'w') as f:
             json_dict = {
