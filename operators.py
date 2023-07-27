@@ -107,9 +107,9 @@ class ExportAnaPose(bpy.types.Operator, ExportHelper):
     def execute(self, context):
         arm = context.scene.anamnesis_armature.pose
 
-        hara = arm.bones['n_hara'].matrix_basis
+        hara = arm.bones['n_throw'].matrix_basis
         arm.bones['n_throw'].matrix_basis = Matrix()
-        diff = Quaternion([1,0,0,0]).rotation_difference(arm.bones['n_hara'].matrix.to_quaternion())
+        diff = Quaternion([1,0,0,0]).rotation_difference(arm.bones['n_throw'].matrix.to_quaternion())
         arm.bones['n_throw'].matrix_basis = hara
 
         with open(self.filepath, 'w') as f:
