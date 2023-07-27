@@ -1,5 +1,5 @@
 bl_info = {
-    'name': 'Pose Helper',
+    'name': 'Pose Helper Exp',
     'category': 'All',
     'version': (1, 2, 0),
     'blender': (2, 93, 1)
