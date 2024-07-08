@@ -84,5 +84,18 @@
     "n_ear_a_l": "EarringALeft",
     "n_ear_b_l": "EarringBLeft",
     "n_ear_a_r": "EarringARight",
-    "n_ear_b_r": "EarringBRight"
+    "n_ear_b_r": "EarringBRight",
+    "j_buki2_kosi_l": "Placeholder",
+    "j_f_dmemoto_l": "Placeholder",
+    "j_f_dmemoto_r": "Placeholder",
+    "j_f_dmiken_l": "Placeholder",
+    "j_f_dmiken_r": "Placeholder",
+    "j_f_dslip_l": "Placeholder",
+    "j_f_dslip_r": "Placeholder",
+    "j_kami_b": "Placeholder",
+    "n_buki_l": "Placeholder",
+    "n_buki_r": "Placeholder",
+    "n_buki_tate_r": "Placeholder",
+    "n_hijisoubi_l": "Placeholder",
+    "n_hijisoubi_r": "Placeholder"
 }
